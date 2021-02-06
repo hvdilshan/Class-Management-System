@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Project.Models.UserFeedback>
+
+@{
+    ViewBag.Title = "Feedback list";
+
+}
+    <link href="../Content/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
+    
+    
+            <div class="content text-white-50">
+
+              
+                @Html.ActionLink("Export to Word ", "Reports", new { ReportType = "Word" }, new { @class="text-white"})
+                @Html.ActionLink("Export to PDF ", "Reports", new { ReportType = "PDF" }, new { @class = "text-white" })
+                <br />
+                <br />
+                <h1 class="agile-head text-center">My Feedbacks..</h1>
+
+
+                    <p>
+                        <button class="btn create" onclick="create()"> @Html.ActionLink("Create New", "Create","", new { @class = "text-white" })</button>
+                        <script>
+                                      function create() {
+                                          alert("Do you want to create a new feedback");
+
+                                        }
+                        </script>
+</p>
+
+
+                <div class="ActionLink">
+                    <table class="table w-100">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Teacher)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </th>
+
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Teacher)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comment)
+                                </td>
+
+                                <td>
+                                    <button class="btn edit">@Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class = "text-white" })</button>
+                                </td>
+                                <td>
+                                    <button class="btn details">@Html.ActionLink("Details", "Details", new { id = item.id }, new { @class = "text-white" })</button>
+                                </td>
+                                <td>
+                                    <button class="btn delete">@Html.ActionLink("Delete", "Delete", new { id = item.id }, new { @class = "text-white" })</button>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    </div>
+                </div>

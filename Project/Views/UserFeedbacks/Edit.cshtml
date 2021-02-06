@@ -1,0 +1,96 @@
+﻿@model Project.Models.UserFeedback
+
+@{
+    ViewBag.Title = "Edit Feedbacks";
+    Layout = null;
+}
+
+<title>Edit Feedbacks</title>
+<script src="https://kit.fontawesome.com/deb92968ea.js" crossorigin="anonymous"></script>
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+    <!-- //custom-theme -->
+    @Styles.Render("~/Content/fdbk.css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<body class="bg-info">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="content-w3ls bg-secondary">
+                    <h1 class="agile-head text-center text-light">Edit Your Feedback </h1>
+                    <div class="form-w3layouts">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.id)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name,new { @class = "text-white col-sm-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "header" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-dangerr" })
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Teacher, htmlAttributes: new { @class = "text-white col-sm-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.Teacher, ViewBag.list as SelectList, new { htmlAttributes = new { @class = "header" } })
+                                @Html.ValidationMessageFor(model => model.Teacher, "", new { @class = "text-dangerr" })
+                                <div class="clear"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "text-white col-sm-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "header" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-dangerr" })
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "text-white col-sm-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(model => model.Comment, new { htmlAttributes = new { @class = "enquiry" } })
+                                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-dangerr" })
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="register"  onclick="save()" />
+                                <script>
+                                    function save() {
+                                          alert("Do you want to save the changes");
+
+                                        }
+                                </script>
+                                <div>
+                                    <button class="btn back" onclick="back()" > @Html.ActionLink("Back to List", "Index","", new { @class="text-dark"})</button>
+                                    <script>
+                                      function back() {
+                                          alert("Do you want to go back to the feedback list");
+
+                                        }
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+     </body>      
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

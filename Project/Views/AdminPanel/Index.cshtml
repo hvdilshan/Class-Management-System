@@ -1,0 +1,108 @@
+﻿@model Project.Models.AdminPanel
+@{
+    ViewBag.Title = "Admin Panel";
+}
+<span><br /></span>
+
+<h2>Admin Panel</h2>
+
+<span><br /><br /></span>
+
+<div >
+    <div class="float-left mr-5">
+        <table class="table bg-dark" style="width:200px; ">
+            <tr >
+                <td class="text-center">
+                    @Html.ActionLink("Add Student", "Create", "Student", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add Teacher", "Create", "Teacher", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add Office Staff", "Create", "Office", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add Cleaner", "Create", "Cleaner", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add Subject", "Create", "Subject", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Upload File", "Index", "UploadFile", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+   
+        </table>
+   </div>
+    <div class="float-right mr-5">
+        <table class="table bg-dark" style="width:200px; ">
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Paymets", "Payment", "PayRoll", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Feedback", "TeacherPage", "UserFeedbacks", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add Notice", "Create", "StaffNotices", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add Exam", "Index", "Exam", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center">
+                    @Html.ActionLink("Time Table", "Timetablehome", "Timetable", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>
+            @*<tr>
+                <td class="text-center">
+                    @Html.ActionLink("Add subject to student", "Index", "UploadFile", "", new { @class = "btn btn-success" })
+                </td>
+            </tr>*@
+
+        </table>
+    </div>
+
+    
+        <div class="bg-light clearfix" style="width:1050px;">
+            <div>
+                <table>
+                    <tr >
+                        <td class="pt-5 pb-4 pl-5">
+                            <h2>Total Teachers : @Model.totalTeachers </h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pb-4 pl-5">
+                            <h2>Total Staff Members : @Model.totalStaff</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pb-4 pl-5">
+                            <h2>Total Students : @Model.totalStudents</h2>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    
+</div>
+
